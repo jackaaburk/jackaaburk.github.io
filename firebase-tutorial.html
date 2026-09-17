@@ -3,161 +3,171 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Firebase Tutorial</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f3e8ff;
-      color: #333;
-      padding: 2rem;
-      line-height: 1.6;
-    }
-
-    a {
-      color: #2b223d;
-      text-decoration: underline;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-  </style>
+  <title>Firebase Tutorial — Jack Burkholder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
+
+  <nav class="site-nav">
+    <div class="wrap">
+      <a class="wordmark" href="index.html">Jack Burkholder</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="celtics25.html">SQL Project</a></li>
+        <li><a href="polarity-checker.html">NLP Project</a></li>
+        <li><a href="firebase-tutorial.html" aria-current="page">Firebase Notes</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero wrap">
     <h1>Firebase Tutorial</h1>
+    <p class="tagline">A written tutorial on Google Firebase's Realtime Database — what a NoSQL, real-time store is, how it compares to PostgreSQL, and how to connect to one from Python.</p>
+    <ul class="stack">
+      <li>Firebase</li>
+      <li>NoSQL</li>
+      <li>Python</li>
+    </ul>
+  </header>
 
-    <p>Created a tutorial on how to use Google Firebase's real-time database. Contains general information on what the NoSQL real-time database is and how it works.</p>
+  <main class="wrap">
 
-  
-    <p><a href="https://github.com/jackaaburk/ITE256/blob/main/Firebase.md">Full Tutorial I made</p>
+    <section id="resources">
+      <h2>Resources</h2>
+      <ul class="resources">
+        <li><a href="https://github.com/jackaaburk/ITE256/blob/main/Firebase.md">Full tutorial (Markdown source)</a></li>
+      </ul>
+    </section>
 
-    <p><a href="index.html">← Back to Portfolio</a></p>
-  </div>
+    <section id="baas">
+      <h2>What is BaaS?</h2>
+      <ul class="plain">
+        <li>"Backend as a Service" (BaaS) is a cloud computing model that provides ready-to-use backend infrastructure.</li>
+        <li>With BaaS, developers can focus more on front-end development, since core backend functionality like databases and authentication comes prebuilt.</li>
+      </ul>
+    </section>
 
-<h2>What is BaaS?</h2>
-<ul>
-  <li>"Back-end as a Service" (BaaS) is a cloud computing model that provides ready-to-use backend infrastructure.</li>
-  <li>With BaaS, developers can focus more on front-end development, as core backend functionalities like databases and authentication are prebuilt.</li>
-</ul>
+    <section id="firebase">
+      <h2>What is Firebase?</h2>
+      <ul class="plain">
+        <li>Firebase is a BaaS platform developed by Google.</li>
+        <li>It's known for its scalability and ease of integration across different frameworks.</li>
+        <li>Firebase offers various SDKs and tools, including a powerful real-time NoSQL database.</li>
+        <li>This tutorial focuses specifically on Firebase's <strong>Realtime Database</strong>.</li>
+      </ul>
+    </section>
 
-<h2>What is Firebase?</h2>
-<ul>
-  <li>Firebase is a BaaS platform developed by Google.</li>
-  <li>It’s known for its scalability and ease of integration across different frameworks.</li>
-  <li>Firebase offers various SDKs and tools, including a powerful <strong>real-time NoSQL database</strong>.</li>
-  <li>This project specifically focuses on Firebase's <strong>Realtime Database</strong>.</li>
-</ul>
+    <section id="how-it-works">
+      <h2>How the Realtime Database works</h2>
+      <ul class="plain">
+        <li>Firebase Realtime Database is a cloud-based NoSQL database that syncs data in real time across every connected client.</li>
+        <li>Changes made by one client are instantly reflected on others, using WebSockets — a persistent, two-way communication channel between client and server.</li>
+        <li>Being NoSQL, it stores data in a schema-less, JSON-based format, which stays flexible across data types and use cases.</li>
+      </ul>
+    </section>
 
-<h2>How Does the Realtime Database Work?</h2>
-<ul>
-  <li>Firebase Realtime Database is a <strong>cloud-based NoSQL</strong> database that syncs data in real-time across all connected clients.</li>
-  <li>Changes made by one client are instantly reflected across others using <strong>WebSockets</strong>.</li>
-  <li><strong>WebSockets</strong> provide a persistent, two-way communication channel between the client and the server.</li>
-  <li>Being NoSQL, it stores data in a <strong>schema-less, JSON-based format</strong>, which is flexible for various data types and use cases.</li>
-</ul>
+    <section id="comparison">
+      <h2>Firebase Realtime Database vs. PostgreSQL</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th scope="col">Feature</th>
+            <th scope="col">Firebase Realtime Database</th>
+            <th scope="col">PostgreSQL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Type</strong></td>
+            <td>NoSQL (JSON-based, hierarchical)</td>
+            <td>SQL (relational)</td>
+          </tr>
+          <tr>
+            <td><strong>Structure</strong></td>
+            <td>Schema-less; data stored as JSON</td>
+            <td>Structured; tables, rows, and relationships</td>
+          </tr>
+          <tr>
+            <td><strong>Querying</strong></td>
+            <td>Limited; hierarchical traversal</td>
+            <td>Full SQL querying, joins, and aggregations</td>
+          </tr>
+          <tr>
+            <td><strong>Scalability</strong></td>
+            <td>Built for real-time sync on mobile/web apps</td>
+            <td>Scales for complex queries and enterprise workloads</td>
+          </tr>
+          <tr>
+            <td><strong>Transactions</strong></td>
+            <td>Basic, with limited capabilities</td>
+            <td>ACID-compliant, for complex operations</td>
+          </tr>
+          <tr>
+            <td><strong>Data consistency</strong></td>
+            <td>Event-driven; eventual consistency</td>
+            <td>Strong consistency with transactional integrity</td>
+          </tr>
+          <tr>
+            <td><strong>Offline support</strong></td>
+            <td>Built-in offline mode for mobile apps</td>
+            <td>Needs additional configuration</td>
+          </tr>
+          <tr>
+            <td><strong>Security</strong></td>
+            <td>Rules-based, with Firebase Authentication</td>
+            <td>Fine-grained roles, permissions, and encryption</td>
+          </tr>
+          <tr>
+            <td><strong>Use cases</strong></td>
+            <td>Real-time chat, live updates, IoT</td>
+            <td>Enterprise apps, financial systems, analytics</td>
+          </tr>
+        </tbody>
+      </table>
+      <blockquote>Table generated by Microsoft Copilot.</blockquote>
+    </section>
 
-<h2>Comparison: Firebase Realtime Database vs PostgreSQL</h2>
-<table border="1">
-  <thead>
-    <tr>
-      <th>Feature</th>
-      <th>Firebase Realtime Database</th>
-      <th>PostgreSQL</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Type</strong></td>
-      <td>NoSQL (JSON-based, hierarchical)</td>
-      <td>SQL (Relational database)</td>
-    </tr>
-    <tr>
-      <td><strong>Structure</strong></td>
-      <td>Schema-less; data stored as JSON</td>
-      <td>Structured; uses tables, rows, and relationships</td>
-    </tr>
-    <tr>
-      <td><strong>Querying</strong></td>
-      <td>Limited querying capabilities; hierarchical traversal</td>
-      <td>Powerful SQL querying, joins, and aggregations</td>
-    </tr>
-    <tr>
-      <td><strong>Scalability</strong></td>
-      <td>Designed for real-time synchronization and mobile/web apps</td>
-      <td>Scalable for complex queries and enterprise applications</td>
-    </tr>
-    <tr>
-      <td><strong>Transactions</strong></td>
-      <td>Basic transactions with limited capabilities</td>
-      <td>ACID-compliant transactions for complex operations</td>
-    </tr>
-    <tr>
-      <td><strong>Data Consistency</strong></td>
-      <td>Event-driven; eventual consistency</td>
-      <td>Strong consistency with transactional integrity</td>
-    </tr>
-    <tr>
-      <td><strong>Offline Support</strong></td>
-      <td>Built-in offline mode for mobile apps</td>
-      <td>Requires additional configuration for offline support</td>
-    </tr>
-    <tr>
-      <td><strong>Security</strong></td>
-      <td>Rules-based security model with Firebase Authentication</td>
-      <td>Fine-grained security control via roles, permissions, and encryption</td>
-    </tr>
-    <tr>
-      <td><strong>Use Cases</strong></td>
-      <td>Real-time chat, live updates, IoT</td>
-      <td>Enterprise applications, financial systems, analytics, large-scale data processing</td>
-    </tr>
-  </tbody>
-</table>
+    <section id="glossary">
+      <h2>A couple of terms</h2>
+      <ul class="plain">
+        <li><strong>JSON</strong> is a plain-text, human- and machine-readable format used for data interchange.</li>
+        <li><strong>Hierarchical databases</strong> are tree-like structures commonly used in web apps.</li>
+      </ul>
+      <p><img src="https://raw.githubusercontent.com/jackaaburk/ITE256/main/Images/HierarchicalDatabase.png" alt="Diagram of a hierarchical database structure" /></p>
+    </section>
 
-<blockquote>
-  Table generated by Microsoft CoPilot.
-</blockquote>
+    <section id="use-cases">
+      <h2>Where Firebase fits</h2>
+      <p>Since it's built around a real-time database, Firebase is a strong fit for:</p>
+      <ul class="plain">
+        <li>Chat apps</li>
+        <li>Collaborative tools, like Replit</li>
+        <li>Live dashboards, like trading views</li>
+        <li>Social apps with a lot of unstructured data, where a NoSQL model helps</li>
+      </ul>
+    </section>
 
-<h3>Index:</h3>
-<ul>
-  <li><strong>JSON</strong> is a plain-text, human and machine-readable file format used for data interchange.</li>
-  <li><strong>Hierarchical databases</strong> are tree-like structures commonly used in web apps.</li>
-</ul>
+    <section id="getting-started">
+      <h2>Getting started with Firebase</h2>
+      <p>All you need to begin is a Firebase app with a Realtime Database attached.</p>
+      <ol class="plain">
+        <li>Go to <a href="https://firebase.google.com" target="_blank" rel="noopener">firebase.google.com</a></li>
+        <li>Click "Get started in console"</li>
+        <li>Create an app and follow the prompts</li>
+        <li>Under "Build" in the sidebar, choose Realtime Database and create one (use Test Mode for tutorials)</li>
+      </ol>
+    </section>
 
-<img src="https://github.com/jackaaburk/ITE256/blob/main/Images/HierarchicalDatabase.png" alt="Hierarchical Database Diagram" />
-
-<h2>For What Kind of Projects Would Firebase Be Used?</h2>
-<h3>Since it has a real-time database, Firebase would be great for:</h3>
-<ul>
-  <li>Chat apps</li>
-  <li>Collaborative project programs, like Replit</li>
-  <li>Live data dashboards, like trading views</li>
-  <li>Social media apps, especially with a NoSQL database that can handle a lot of unstructured data</li>
-</ul>
-
-<h2>Firebase Tutorial: Getting Started with Firebase Using Python</h2>
-<p>To start, all you need to do is make a Firebase app with a real-time database.</p>
-<ol>
-  <li>Go to <a href="https://firebase.google.com" target="_blank">firebase.google.com</a></li>
-  <li>Click "Get started in console"</li>
-  <li>Create an app and follow the prompts</li>
-  <li>Under "Build" in the sidebar, choose Realtime Database and create one (use Test Mode for tutorials)</li>
-</ol>
-
-<h2>Firebase Tutorial: Connecting Your Terminal to the Realtime Database</h2>
-<ol>
-  <li>Install Firebase Admin SDK with: <code>pip install firebase_admin</code></li>
-  <li>Create a project directory and a Python file (e.g., <code>main.py</code>)</li>
-  <li>Copy the following template and replace credentials:</li>
-</ol>
-
+    <section id="connecting">
+      <h2>Connecting from your terminal</h2>
+      <ol class="plain">
+        <li>Install the Firebase Admin SDK: <code>pip install firebase_admin</code></li>
+        <li>Create a project directory and a Python file (e.g. <code>main.py</code>)</li>
+        <li>Copy the template below and swap in your own credentials:</li>
+      </ol>
 <pre><code>import firebase_admin
 
 cred_obj = firebase_admin.credentials.Certificate('....path to file')
@@ -173,13 +183,14 @@ with open("objects.json", "r") as f:
     file_contents = json.load(f)
 ref.set(file_contents)
 </code></pre>
+    </section>
 
-<h2>Adding Objects to Your Non-relational Database</h2>
-<ul>
-  <li>In the code above, <code>objects.json</code> is opened and its contents sent to Firebase using <code>ref.set()</code>.</li>
-  <li>Create a JSON file named <code>objects.json</code> with data like the following:</li>
-</ul>
-
+    <section id="adding-objects">
+      <h2>Adding objects to the database</h2>
+      <ul class="plain">
+        <li>In the code above, <code>objects.json</code> is opened and its contents sent to Firebase with <code>ref.set()</code>.</li>
+        <li>Create a JSON file named <code>objects.json</code> with data shaped like this:</li>
+      </ul>
 <pre><code>{
     "Object": {
         "Attribute1": "Beep",
@@ -187,8 +198,18 @@ ref.set(file_contents)
     }
 }
 </code></pre>
+      <p>Run the Python script, and the objects should appear in your Firebase Realtime Database console.</p>
+    </section>
 
-<p>Once you run the Python script, the objects should be sent and viewable in your Firebase Realtime Database console.</p>
+  </main>
+
+  <div class="wrap">
+    <a class="back-link" href="index.html">← Back to portfolio</a>
+  </div>
+
+  <footer class="wrap">
+    <p>&copy; 2025 Jack Burkholder.</p>
+  </footer>
 
 </body>
 </html>

@@ -4,142 +4,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jack Burkholder Portfolio</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background-color: #f3e8ff; /* Changed to purple */
-      color: #333;
-      scroll-behavior: smooth;
-    }
-
-    header {
-      background: #2b223d;
-      color: #fff;
-      padding: 1rem 0;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 0.5rem;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #f9c74f;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 2rem;
-    }
-
-    section {
-      margin-bottom: 4rem;
-    }
-
-    h1 {
-      color: #f3d5d5;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    h2 {
-      color: #2b223d;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      background: #fff;
-      padding: 1rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .project-card h3 {
-      margin-bottom: 0.5rem;
-    }
-
-    .project-card a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      color: #2b223d;
-      text-decoration: underline;
-    }
-
-    footer {
-      background: #2b223d;
-      color: #fff;
-      text-align: center;
-      padding: 1rem 0;
-    }
-  </style>
+  <title>Jack Burkholder — Database &amp; Data Science Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <header>
-    <h1>Jack Burkholder's ITE140/256 Database Portfolio</h1>
+  <nav class="site-nav">
+    <div class="wrap">
+      <a class="wordmark" href="index.html">Jack Burkholder</a>
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="celtics25.html">SQL Project</a></li>
+        <li><a href="polarity-checker.html">NLP Project</a></li>
+        <li><a href="firebase-tutorial.html">Firebase Notes</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero wrap">
+    <h1>Database and data-science coursework, built end to end.</h1>
+    <p class="tagline">Three projects from my junior-year, NOVA dual-enrollment database class (ITE 140 / ITE 256) at Arlington Tech, taught by Mr. Jones.</p>
   </header>
 
-  <div class="container">
+  <main class="wrap">
     <section id="about">
-      <h2>About</h2>
-      <p>This is Jack Burkholder's portfolio showcasing my various projects I worked on throughout my highschool junior year's NoVA ITE140/256 Database class with Mr. Jones.</p>
-
-      <p>In this class, I learned in-depth mechanics of the structure and process of databases, their indexes, and methods for managing. Throughout the year, we had three major projects that each student worked on.</p>
+      <h2>About this work</h2>
+      <div class="lede-block">
+        <p>Over the year, the class covered relational database design, SQL, and non-relational alternatives, then applied those ideas to natural-language data. Each project below started from a real assignment brief and ended with something I could run and explain end to end — schema design, data pipeline, and output.</p>
+      </div>
     </section>
 
     <section id="projects">
       <h2>Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3>Polarity-Checker</h3>
-          <p>Made a program using Pandas and spaCy that detects polarity of responses for data-vectorization and natural language processing.</p>
-          <a href="polarity-checker.html">Learn More →</a>
-        </div>
-        <div class="project-card">
-          <h3>Celtics25 Database in PostGreSQL</h3>
-          <p>Created and managed a relational database in a PostGreSQL server. Used Pandas to extract data and display it in various ways on Google Sheets.</p>
-          <a href="celtics25.html">Learn More →</a>
-        </div>
-        <div class="project-card">
-          <h3>Firebase Tutorial (Real-time Database)</h3>
-          <p>Created a tutorial on how to use Google Firebase's real-time database. Contains general information on what the NoSQL real-time database is and how it works.</p>
-          <a href="firebase-tutorial.html">Learn More →</a>
-        </div>
-      </div>
+      <p class="records-note">Three records from this year's coursework — click a project to open its write-up.</p>
+      <table class="records">
+        <thead>
+          <tr>
+            <th scope="col">Project</th>
+            <th scope="col">What it does</th>
+            <th scope="col">Stack</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="rec-name">Celtics25</td>
+            <td class="rec-desc">A relational database for the 2024–25 Celtics starting five, modeled in 3NF, queried with Python, and surfaced as a refreshable Excel PivotTable.</td>
+            <td>
+              <ul class="stack">
+                <li>PostgreSQL</li>
+                <li>Python</li>
+                <li>Django</li>
+              </ul>
+            </td>
+            <td class="rec-link"><a href="celtics25.html">View →</a></td>
+          </tr>
+          <tr>
+            <td class="rec-name">Polarity Checker</td>
+            <td class="rec-desc">An NLP pipeline that scores sentiment in open-ended survey responses from Arlington's 2050 planning project, then visualizes the results.</td>
+            <td>
+              <ul class="stack">
+                <li>Python</li>
+                <li>pandas</li>
+                <li>spaCy</li>
+              </ul>
+            </td>
+            <td class="rec-link"><a href="polarity-checker.html">View →</a></td>
+          </tr>
+          <tr>
+            <td class="rec-name">Firebase Notes</td>
+            <td class="rec-desc">A written tutorial on Firebase's Realtime Database — how a NoSQL, JSON-based store compares to PostgreSQL, and how to connect to one from Python.</td>
+            <td>
+              <ul class="stack">
+                <li>Firebase</li>
+                <li>NoSQL</li>
+                <li>Python</li>
+              </ul>
+            </td>
+            <td class="rec-link"><a href="firebase-tutorial.html">View →</a></td>
+          </tr>
+        </tbody>
+      </table>
     </section>
-  </div>
+  </main>
 
-  <footer>
-    <p>&copy; 2025 Jack Burkholder. All rights reserved.</p>
+  <footer class="wrap">
+    <p>&copy; 2025 Jack Burkholder.</p>
   </footer>
 
 </body>

@@ -3,99 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Celtics25 Project</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f3e8ff;
-      color: #333;
-      padding: 2rem;
-      line-height: 1.6;
-    }
-
-    a {
-      color: #2b223d;
-      text-decoration: underline;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: auto;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-  </style>
+  <title>Celtics25 — Jack Burkholder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
+
+  <nav class="site-nav">
+    <div class="wrap">
+      <a class="wordmark" href="index.html">Jack Burkholder</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="celtics25.html" aria-current="page">SQL Project</a></li>
+        <li><a href="polarity-checker.html">NLP Project</a></li>
+        <li><a href="firebase-tutorial.html">Firebase Notes</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero wrap">
     <h1>Celtics25</h1>
-    <p>Created and managed a relational database in a PostGreSQL server. Used Pandas to extract data and display it in various ways on Google Sheets.</p>
+    <p class="tagline">A relational database for the 2024–25 Boston Celtics starting five, designed in third normal form and surfaced through a refreshable Excel report.</p>
+    <ul class="stack">
+      <li>PostgreSQL</li>
+      <li>Python</li>
+      <li>Mockaroo</li>
+      <li>Django</li>
+    </ul>
+  </header>
 
-    <p>Through this project, we learned many intricacies of relational databases, write-ups of such can be found below.</p>
+  <main class="wrap">
 
-    <p><a href="https://github.com/jackaaburk/ITE256/blob/main/Celtics25models.py">SQL File to create schema</p>
+    <section id="overview">
+      <h2>Overview</h2>
+      <div class="lede-block">
+        <p>Created and managed a relational database in a PostgreSQL server, then used pandas to extract the data and display it in Google Sheets and Excel.</p>
+        <p>For the ITE 140 final project, the brief was to build a presentable SQL database that could connect to an Excel file for easy viewing. I built a database for the Celtics' 2024–25 starting five: one table of players, and several related tables holding stats and details for each of them.</p>
+      </div>
+    </section>
 
-    <p><a href="https://github.com/jackaaburk/ITE256/blob/main/Q3InvestiageTables.md">ER Diagram creation and comparison</p>
+    <section id="resources">
+      <h2>Resources</h2>
+      <ul class="resources">
+        <li><a href="https://github.com/jackaaburk/ITE140/tree/main/Celtics25SQLProject">Project folder — full source and overview</a></li>
+        <li><a href="https://github.com/jackaaburk/ITE256/blob/main/Celtics25models.py">Schema definition (SQL file)</a></li>
+        <li><a href="https://github.com/jackaaburk/ITE256/blob/main/Q3InvestiageTables.md">ER diagram — creation and comparison notes</a></li>
+        <li><a href="https://github.com/jackaaburk/ITE256/blob/main/Q4InvestigateQueries.md">Investigating queries</a></li>
+        <li><a href="https://github.com/jackaaburk/ITE256/blob/main/UseTheIndexDjango.md">Indexing at scale, using mock data in Celtics25</a></li>
+      </ul>
+    </section>
 
-    <p><a href="https://github.com/jackaaburk/ITE256/blob/main/Q4InvestigateQueries.md">Investigating Queries</p>
+    <section id="build">
+      <h2>How it was built</h2>
 
-    <p><a href="https://github.com/jackaaburk/ITE256/blob/main/UseTheIndexDjango.md">Using large sets of mock data in Celtics25 to show importance of proper indexing</p>
+      <h3 style="font-family:var(--font-display); font-weight:500; font-size:1.15rem; margin-bottom:0.5rem;">Step 1 — ER diagram</h3>
+      <p>The brief required at least five tables, one many-to-many relationship, and a schema normalized to 3NF. I used LucidChart to design the ER diagram before writing any SQL.</p>
+      <p><a href="https://github.com/jackaaburk/ITE140/blob/main/Celtics25SQLProject/Celtics25ER.png">View the ER diagram →</a></p>
 
-    <p><a href="https://github.com/jackaaburk/ITE140/tree/main/Celtics25SQLProject">Folder with overview of project</a></p>
+      <h3 style="font-family:var(--font-display); font-weight:500; font-size:1.15rem; margin: 1.5rem 0 0.5rem;">Step 2 — SQL script</h3>
+      <p>Next came an idempotent SQL script generated from that diagram — safe to run repeatedly, and responsible for creating every table, inserting its data, and defining at least one view.</p>
+      <p><a href="https://github.com/jackaaburk/ITE140/blob/main/Celtics25SQLProject/Celtics25SQL.sql">View the SQL script →</a></p>
+
+      <h3 style="font-family:var(--font-display); font-weight:500; font-size:1.15rem; margin: 1.5rem 0 0.5rem;">Step 3 — Python extraction</h3>
+      <p>Raw SQL output isn't easy to read at a glance, so a Python script pulls the table data and writes it to a Microsoft Excel file. That file opens in Excel through Power Query, which behaves like a normal table and refreshes each time the script runs.</p>
+      <p><a href="https://github.com/jackaaburk/ITE140/blob/main/Celtics25SQLProject/SQLtoExcelCeltics25.py">View the Python script →</a></p>
+
+      <h3 style="font-family:var(--font-display); font-weight:500; font-size:1.15rem; margin: 1.5rem 0 0.5rem;">Step 4 — Excel reporting</h3>
+      <p>The last step turns that refreshed table into a PivotTable and PivotChart, so the underlying data can be sliced and viewed a few different ways quickly.</p>
+      <p><a href="https://github.com/jackaaburk/ITE140/blob/main/Celtics25SQLProject/output.xlsx">View the Excel file →</a></p>
+    </section>
+
+  </main>
+
+  <div class="wrap">
+    <a class="back-link" href="index.html">← Back to portfolio</a>
   </div>
 
-  <div class="container">
-    <p><strong>Technologies used:</strong> Python, PostGreSQL, Mockaroo, Django</p>
-
-    <p><a href="index.html">← Back to Portfolio</a></p>
-  </div>
-  
-  <ul>
-    <li>In our ITE140 Final Project, we were supposed to:</li>
-    <li>Create a database with certain requirements.</li>
-    <li>We created our database in a PostGreSQL server.</li>
-    <li>The goal of the project was to create a presentable SQL database that would connect to an Excel file to be easily viewed.</li>
-  </ul>
-
-  <blockquote>
-    In my project, I created a database for the starting five Boston Celtics players for the 2024–25 season. I had a table containing the players, and then varying tables containing information about each player.
-  </blockquote>
-
-  <h2>Step 1: ER Diagram Creation</h2>
-  <ul>
-    <li>In this project, I was required to:</li>
-    <li>Have at least 5 tables</li>
-    <li>Have one many-to-many relationship</li>
-    <li>Create my database in 3NF (third normal form)</li>
-    <li>I used LucidChart to create my ER Diagram.</li>
-  </ul>
-  <p><a href="https://github.com/jackaaburk/ITE140/blob/main/Celtics25SQLProject/Celtics25ER.png"> View ER Diagram (Celtics25ERDiagram)</a></p>
-
-  <h2>Step 2: Create My SQL Script</h2>
-  <ul>
-    <li>Next, we were to create an SQL script based on our ER diagram.</li>
-    <li>This SQL script had to be idempotent, meaning you could run it over and over without any issues.</li>
-    <li>The SQL script had to create the tables, insert their respective data, and create at least one view for the tables.</li>
-  </ul>
-  <p><a href="https://github.com/jackaaburk/ITE140/blob/main/Celtics25SQLProject/Celtics25SQL.sql"> View SQL Script (Celtics25SQL)</a></p>
-
-  <h2>Step 3: Python Extraction Script</h2>
-  <ul>
-    <li>For many people, it is difficult to read SQL databases in an efficient manner.</li>
-    <li>To fix this, I used a Python script to extract the data from my tables and write them onto a Microsoft Excel file.</li>
-    <li>The output file is then opened in Excel using a PowerQuery, which acts like a regular Excel table that can be refreshed each time you run the Python script.</li>
-  </ul>
-  <p><a href="https://github.com/jackaaburk/ITE140/blob/main/Celtics25SQLProject/SQLtoExcelCeltics25.py"> View Python Script (Celtics25PythonScript)</a></p>
-
-  <h2>Step 4: Finalize Excel Data</h2>
-  <ul>
-    <li>Finally, we made a PivotTable and PivotChart on Excel.</li>
-    <li>The table and chart can be used to look at the data more efficiently and to see data in different ways, quickly.</li>
-  </ul>
-  <p><a href="https://github.com/jackaaburk/ITE140/blob/main/Celtics25SQLProject/output.xlsx"> View Excel File (Celtics25ExcelFile)</a></p>
+  <footer class="wrap">
+    <p>&copy; 2025 Jack Burkholder.</p>
+  </footer>
 
 </body>
 </html>
